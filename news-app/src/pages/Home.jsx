@@ -2,32 +2,14 @@ import { useState, useEffect } from "react"
 import ListNews from "../components/ListNews"
 import { useDispatch, useSelector } from 'react-redux'
 
-import { fetchNews } from "../store/actions"
+import { fetchNews } from "../redux/actions"
 
 import "./Home.css"
 
+// page home for default page 
 function Home(props) {
     const dispatch = useDispatch()
     const news = useSelector(state => state.news)
-
-    // const [news, setNews] = useState([])
-
-    // useEffect(() => {
-    //     fetch('https://newsapi.org/v2/everything?q=*&apiKey=c43e1651327a4907bc78c60b25effd98')
-    //         .then(response => {
-    //             if (!response.ok) {
-    //                 throw new Error('error response')
-    //             }
-    //             return response.json()
-    //         })
-    //         .then(data => {
-    //             // console.log(data)
-    //             setNews(data.articles)
-    //         })
-    //         .catch(err => {
-    //             console.log(err)
-    //         })
-    // }, [])
 
     useEffect(() => {
         dispatch(fetchNews("*"))

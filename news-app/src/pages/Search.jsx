@@ -6,14 +6,14 @@ import { fetchNews } from "../redux/actions"
 
 import "./Home.css"
 
-// component to display Tech article
-function Tech(props) {
+// component to display result article from query
+function Search(props) {
     const dispatch = useDispatch()
     const news = useSelector(state => state.news)
 
     useEffect(() => {
-        dispatch(fetchNews("tech"))
-    }, [])
+        dispatch(fetchNews(props.search))
+    }, [news])
 
     return (
         <div className='container'>
@@ -26,4 +26,4 @@ function Tech(props) {
     )
 }
 
-export default Tech
+export default Search

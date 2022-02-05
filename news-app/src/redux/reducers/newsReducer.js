@@ -1,6 +1,9 @@
+import constant from '../constant'
+
+// make article reducer
 function newsReducer(state = [], action) {
     switch (action.type) {
-        case 'SET_NEWS':
+        case constant.SET_NEWS:
             return action.payload
 
         default:

@@ -4,9 +4,14 @@
 }
 
 .image {
-    margin: 10px;
-    width: 200px;
+    margin: 10px 10px 10px 0px;
+    width: 240px;
+    height: 160px;
     border-radius: 4%;
+}
+
+.item {
+    margin-left: 4px;
 }
 
 .title {
@@ -16,6 +21,10 @@
 
 .desc {
     margin-bottom: 0px;
+}
+
+.link {
+    width: fit-content;
 }
 
 .see-more {

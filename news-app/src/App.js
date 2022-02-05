@@ -6,21 +6,31 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import News from './pages/News';
 import Sport from './pages/Sport';
-import DetailNews from './components/DetailNews';
 import Tech from './pages/Tech';
 import Travel from './pages/Travel';
+import DetailNews from './components/DetailNews';
+import Search from './pages/Search'
 
 function App() {
+  // state articles
   const [ news, setNews ] = useState({})
 
+  // state query for searching
+  const [ search, setSearch ] = useState('')
+
+  // function query to send to search page
+  function getSearch (query) {
+    setSearch(query)
+  }
+
+  // function to set the articles, for show
   function getNews(news) {
-    // console.log (news)
     setNews(news)
   }
 
   return (
     <div className="App">
-      <Navbar></Navbar>
+      <Navbar getSearch={getSearch}></Navbar>
 
       <Switch>
         <Route exact path='/'>
@@ -43,7 +53,11 @@ function App() {
           <Travel getNews={getNews}></Travel>
         </Route>
 
-        <Route exact path='/detail/'>
+        <Route exact path='/search'>
+          <Search getNews={getNews} search={search}></Search>
+        </Route>
+        
+        <Route exact path='/detail'>
           <DetailNews news={news}></DetailNews>
         </Route>
       </Switch>

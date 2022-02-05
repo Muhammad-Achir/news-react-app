@@ -1,30 +1,18 @@
 import { useState, useEffect } from "react"
 import ListNews from "../components/ListNews"
+import { useDispatch, useSelector } from 'react-redux'
 
-import fetchApi from '../api'
+import { fetchNews } from "../redux/actions"
 
 import "./Home.css"
 
+// component to display news article
 function News(props) {
-    const [news, setNews] = useState([])
+    const dispatch = useDispatch()
+    const news = useSelector(state => state.news)
 
-    function getNews() {
-        fetchApi('news')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("error response")
-                }
-                return response.json()
-            })
-            .then(data => {
-                setNews(data.articles)
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }
     useEffect(() => {
-        getNews()
+        dispatch(fetchNews("news"))
     }, [])
 
     return (

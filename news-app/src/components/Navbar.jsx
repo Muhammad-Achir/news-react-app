@@ -1,6 +1,18 @@
+import { useState } from "react"
 import { Link } from "react-router-dom"
 
-function Navbar() {
+// component bar navigation
+function Navbar(props) {
+    const [search, setSearch] = useState('')
+
+    function onChangeSearch(event) {
+        setSearch(event.target.value)
+    }
+
+    function submitSearch(event) {
+        props.getSearch(search)
+    }
+
     return (
         <div className="fixed-top">
             <nav className="navbar navbar-expand-sm navbar navbar-dark bg-primary">
@@ -24,12 +36,12 @@ function Navbar() {
                             </li>
                             <li className="nav-item">
                                 <Link to="/travel" className="nav-link">Travel</Link>
-                            </li>                            
+                            </li>
                         </ul>
-                        <form className="d-flex">
-                            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                            <button className="btn btn-light" type="submit">Search</button>
-                        </form>
+                        <div className="d-flex">
+                            <input onChange={onChangeSearch} value={search} className="form-control me-2" type="text" placeholder="Search" aria-label="Search" />
+                            <Link to="/search" onClick={submitSearch} className="btn btn-light">Search</Link>
+                        </div>
                     </div>
                 </div>
             </nav>
