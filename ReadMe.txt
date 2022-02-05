@@ -11,3 +11,5 @@ How to run:
 4. in the terminal type "cd news-app"
 5. "npm install
 6. "npm start"
+
+NOTE: This api has an access limit of 1000 requests and will be reset in 24 hours
