@@ -1,0 +1,23 @@
+.list {
+    display: flex;
+    border-bottom: 0.1em solid #055a8f51;
+}
+
+.image {
+    margin: 10px;
+    width: 200px;
+    border-radius: 4%;
+}
+
+.title {
+    margin-top: 10px;
+    color: #0b76b8;
+}
+
+.desc {
+    margin-bottom: 0px;
+}
+
+.see-more {
+    margin-bottom: 10px;
+}
